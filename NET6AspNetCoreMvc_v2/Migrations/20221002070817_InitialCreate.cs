@@ -9,6 +9,7 @@ namespace NET6AspNetCoreMvc_v2.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            //burada raw sql kullanılabilir. Migration'dan önce bunu çalıştır.
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new

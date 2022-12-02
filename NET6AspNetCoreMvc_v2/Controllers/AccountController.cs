@@ -138,6 +138,7 @@ namespace NET6AspNetCoreMvc_v2.Controllers
 
             User user = _databaseContext.Users.SingleOrDefault(x => x.Id == userId);
             ViewData["username"] = user.NameSurname;
+            ViewData["image"] = user.ProfileImageFileName;
         }
 
 
@@ -191,12 +192,36 @@ namespace NET6AspNetCoreMvc_v2.Controllers
 
         [HttpPost]
         public IActionResult ProfileChangeImage([Required] IFormFile file) 
-        { 
+        {
             //Dosyayı kaydet
             //Dosya adı ver (kullanıcının id'si)
+            if (ModelState.IsValid)
+            {
+                //Kullanıcıyı al
+                Guid userid = new Guid(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                User user = _databaseContext.Users.SingleOrDefault(x => x.Id == userid);
 
-        
-        
+                //Dosta adını oluştur.(p_userId.jpg)
+                string fileName = $"_{userid}.jpg";
+
+                //Dosyayı yüklemek için Stream kullanıyoruz.
+                Stream stream = new FileStream($"wwwroot/uploads/{fileName}", FileMode.OpenOrCreate);
+                file.CopyTo(stream);
+
+                //Bunu yazmadığımızda dosya açık kalıyor.
+                //Dosya kullanımda hatası veriyot.
+                stream.Close();
+
+                //Dispose yerine using bloğu da kullanabiliriz.
+                stream.Dispose(); 
+
+                user.ProfileImageFileName = fileName;
+                _databaseContext.SaveChanges();
+
+                return RedirectToAction(nameof(Profile));
+            }   
+
+            return View("Profile");
         }
 
         public IActionResult Logout()
