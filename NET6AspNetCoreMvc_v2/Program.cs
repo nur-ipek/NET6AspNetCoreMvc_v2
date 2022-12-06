@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using NET6AspNetCoreMvc_v2.Entities;
+using System.Reflection;
 
 namespace NET6AspNetCoreMvc_v2
 {
@@ -12,6 +13,8 @@ namespace NET6AspNetCoreMvc_v2
 
             // Add services to the container.
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            //Profile class'ý implemente etmiþ class'larý bulacaðým. Yapýcý metotlarýný çalýþtýrýp map'lemeyi tetikleyeceðim.
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
             builder.Services.AddDbContext<DatabaseContext>(opts =>
             {
                 opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

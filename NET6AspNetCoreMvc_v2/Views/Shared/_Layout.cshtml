@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -32,9 +32,19 @@
                         {
                             if (User.IsInRole("admin"))
                             {
-                                <li class="nav-item">
+                                @*<li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Administrator</a>
+                                </li>*@
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" asp-action="Index" asp-controller="Admin" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Administrator
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a asp-action="Index" asp-controller="User" class="dropdown-item" >Users</a></li>
+                                    </ul>
                                 </li>
+
                             }
 
 
@@ -44,7 +54,7 @@
                             <li class="nav-item ms-auto">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile"><i class="fa-solid fa-user me-2"></i>@User.FindFirst("Username").Value</a>
                             </li>
-                            @*Burada tekrardan bir ms-auto'ya ihtiyacımız yok. Yukarıdaki zaten öteliyor.*@
+                            @*Burada tekrardan bir ms-auto'ya ihtiyacımız yok. Yukarıdaki zaten öteliyor.
                             <li class="nav-item ">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
                             </li>
