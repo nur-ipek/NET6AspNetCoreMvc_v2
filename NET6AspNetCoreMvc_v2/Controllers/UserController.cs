@@ -28,5 +28,27 @@ namespace NET6AspNetCoreMvc_v2.Controllers
          
             return View(usersViewModel);
         }
+        public IActionResult Create()
+        {
+            return View();
+        
+        }
+
+
+        [HttpPost]
+        public IActionResult Create(CreateUserViewModel createUserViewModel) 
+        {
+            if (ModelState.IsValid)
+            {
+                User user = _mapper.Map<User>(createUserViewModel);
+                _databaseContext.Users.Add(_mapper.Map<User>(createUserViewModel));
+                _databaseContext.SaveChanges();
+
+                return RedirectToAction(nameof(Index));  
+            }
+            return View(createUserViewModel);
+
+
+        }
     }
 }

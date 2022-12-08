@@ -1,0 +1,63 @@
+﻿@model CreateUserViewModel
+
+@{
+    ViewData["Title"] = "Kullanıcı Kayıt Et";
+}
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="dispaly-4 border-bottom text-center pb-3">Üye Ol</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <form method="post">
+            <div class="form-group mb-3">
+                <label asp-for="UserName" class="form-label"> Kullanıcı Adı:</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="NameSurname" class="form-label"> Adı Soyadı:</label>
+                <input asp-for="NameSurname" class="form-control" />
+                <span asp-validation-for="NameSurname" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Password" class="form-label">Şifre: </label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3 ">
+                <label asp-for="RePassword" class="form-label">Şifre Tekrar: </label>
+                <input asp-for="RePassword" type="password"  class="form-control" />
+                <span asp-validation-for="RePassword" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3 ">
+                <label asp-for="Role" class="form-label">Rol: </label>
+                <select asp-for="Role" class="form-control">
+                    <option value="">Please Select</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger small"></span>
+            </div>   
+            <div class="form-group mb-3 ">
+                <div class="form-check"></div>
+               
+                <input asp-for="Locked" type="checkbox"  class="form-check-input" />
+                 <label asp-for="Locked" class="form-check-label">Kilitli </label>
+
+            </div>
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class="btn btn-outline-primary d-block">
+                    Kayıt Et
+                 </button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
