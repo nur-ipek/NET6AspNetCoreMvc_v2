@@ -76,8 +76,8 @@ namespace NET6AspNetCoreMvc_v2.Controllers
 
 
                 User user = _databaseContext.Users.Find(id);
-                _mapper.Map(updateUserViewModel, user);
-                //_databaseContext.Users.Update(user);
+                _mapper.Map(updateUserViewModel, user);  // Modeldekileri User'a kopyala.......
+                
                 _databaseContext.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
