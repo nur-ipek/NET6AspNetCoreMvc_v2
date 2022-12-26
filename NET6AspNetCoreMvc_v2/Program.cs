@@ -18,7 +18,7 @@ namespace NET6AspNetCoreMvc_v2
             builder.Services.AddDbContext<DatabaseContext>(opts =>
             {
                 opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-                //opts.UseLazyLoadingProxies();
+            
             });
 
             builder.Services

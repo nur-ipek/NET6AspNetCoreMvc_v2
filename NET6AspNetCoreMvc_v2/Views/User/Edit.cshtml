@@ -1,7 +1,7 @@
-﻿@model CreateUserViewModel
+﻿@model UpdateUserViewModel
 
 @{
-    ViewData["Title"] = "Kullanıcı Kayıt Et";
+    ViewData["Title"] = "Kullanıcı Güncelle";
 }
 
 <div class="row">
@@ -24,16 +24,6 @@
                 <input asp-for="NameSurname" class="form-control" />
                 <span asp-validation-for="NameSurname" class="text-danger small"></span>
             </div>
-            <div class="form-group mb-3">
-                <label asp-for="Password" class="form-label">Şifre: </label>
-                <input asp-for="Password" type="password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger small"></span>
-            </div>
-            <div class="form-group mb-3 ">
-                <label asp-for="RePassword" class="form-label">Şifre Tekrar: </label>
-                <input asp-for="RePassword" type="password"  class="form-control" />
-                <span asp-validation-for="RePassword" class="text-danger small"></span>
-            </div>
             <div class="form-group mb-3 ">
                 <label asp-for="Role" class="form-label">Rol: </label>
                 <select asp-for="Role" class="form-select">
@@ -53,7 +43,7 @@
 
             <div class="form-group d-grid mb-3">
                 <button type="submit" class="btn btn-outline-primary d-block">
-                    Kayıt Et
+                    Güncelle
                  </button>
             </div>
         </form>

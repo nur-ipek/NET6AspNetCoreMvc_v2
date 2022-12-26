@@ -54,7 +54,8 @@
                             <li class="nav-item ms-auto">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile"><i class="fa-solid fa-user me-2"></i>@User.FindFirst("Username").Value</a>
                             </li>
-                            @*Burada tekrardan bir ms-auto'ya ihtiyacımız yok. Yukarıdaki zaten öteliyor.
+
+                           @* Burada tekrardan bir ms-auto'ya ihtiyacımız yok. Yukarıdaki zaten öteliyor.*@
                             <li class="nav-item ">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
                             </li>
@@ -64,13 +65,14 @@
                             <li class="nav-item ms-auto">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i>Giriş Yap</a>
                             </li>
-                            @*Burada tekrardan bir ms-auto'ya ihtiyacımız yok. Yukarıdaki zaten öteliyor.*@
+                          @*  Burada tekrardan bir ms-auto'ya ihtiyacımız yok. Yukarıdaki zaten öteliyor.*@
                             <li class="nav-item ">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register"><i class="fa-solid fa-user me-2"></i>Üye Ol</a>
                             </li>
-                            
+
                         }
                         
+
                     </ul>
                 </div>
             </div>

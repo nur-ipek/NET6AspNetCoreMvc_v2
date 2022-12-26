@@ -9,6 +9,8 @@ namespace NET6AspNetCoreMvc_v2
         public AutoMapperConfig()
         {
             CreateMap<User, UserViewModel>().ReverseMap();
+            CreateMap<User, CreateUserViewModel>().ReverseMap();
+            CreateMap<User, UpdateUserViewModel>().ReverseMap();
         }
     }
 }

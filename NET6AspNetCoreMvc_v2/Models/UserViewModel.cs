@@ -49,4 +49,21 @@ namespace NET6AspNetCoreMvc_v2.Models
 
       
     }
+
+    public class UpdateUserViewModel
+    {
+        public string? NameSurname { get; set; }
+
+        [Display(Name = "Kullnıcı Adı:", Prompt = "johndoe")]
+        [Required(ErrorMessage = "Kullanıcı adı zorunludur!")]
+        [StringLength(30, ErrorMessage = "Kullanıcı adı en fazla 30 karakter olabilir!")]
+        public string UserName { get; set; }
+
+        public string Role { get; set; } = "User";
+        public bool Locked { get; set; }
+
+
+    }
+
+
 }
